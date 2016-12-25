@@ -11,17 +11,37 @@ import javax.swing.JOptionPane;
  * product, difference and quotient of the two numbers
  */
 public class OperationOfTwoNumbers {
-	public static void main(String[] args) {
-		String number1 = JOptionPane.showInputDialog("Enter Number1");
-		String number2 = JOptionPane.showInputDialog("Enter Number2");
-		int num1 = Integer.parseInt(number1);
-		int num2 = Integer.parseInt(number2);
-		int sum = num1 + num2;
-		
+	public int[] input() {
+		int[] inputs = new int[2];
+		for (int i = 0; i < 2;) inputs[i] = Integer.parseInt(JOptionPane.showInputDialog("Enter Number" + ++i));
+		return inputs;
+	}
+	
+	public int sum(int n1, int n2) {
+		return n1 + n2;
+	}
+	
+	public int product(int n1, int n2) {
+		return n1 * n2;
+	}
+	
+	public int difference(int n1, int n2) {
+		return n1 - n2;
+	}
+	
+	public int quotient(int n1, int n2) {
+		return n1 / n2;
+	}
+	
+	public void output(int n1, int n2) {
 		JOptionPane.showMessageDialog(null, 
-			"The sum of the two numbers is " + sum + "\n" +
-			"The difference of two numbers is " + (num1 - num2) + "\n" +
-			"The product of two numbers is " + num1 * num2 + "\n" +
-			"The quotient of two numbers is " + (num2 == 0 ? "undefined" : (num1 / num2)));
+			"Sum: " + sum(n1, n2) + "\n" + "Difference: " + difference(n1, n2) + "\n" +
+			"Product: " + product(n1, n2) + "\n" + "Quotient: " + (n2 == 0 ? "undefined" : quotient(n1, n2)));
+	}
+	
+	public static void main(String[] args) {
+		OperationOfTwoNumbers operations = new OperationOfTwoNumbers();
+		int[] inputs = operations.input();
+		operations.output(inputs[0], inputs[1]);
 	}
 }
