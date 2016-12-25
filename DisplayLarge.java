@@ -11,24 +11,25 @@ import javax.swing.JOptionPane;
  * If the numbers are equal, print the message "These numbers are equal." 
  */
 public class DisplayLarge {
-	public static void main(String[] args) {
-		String number1 = JOptionPane.showInputDialog("Enter Number1");
-		String number2 = JOptionPane.showInputDialog("Enter Number2");
-		int num1 = Integer.parseInt(number1);
-		int num2 = Integer.parseInt(number2);
-		int large;
-		if (num1 > num2) {
-			large = num1;
-		}
-		else {
-			large = num2;
-		}
-		if (num1 == num2) {
-			JOptionPane.showMessageDialog(null, "These numbers are equal");
-		}
-		else {
-			JOptionPane.showMessageDialog(null, large + " is larger");
-		}
+	public int[] input() {
+		int inputs[] = new int[2];
+		for (int i = 0; i < 2;) inputs[i] = Integer.parseInt(JOptionPane.showInputDialog("Enter Number" + ++i));
+		return inputs;
 	}
 
+	public int max(int n1, int n2) {
+		if (n1 > n2) return n1;
+		else return n2;
+	}
+
+	public void output(int n1, int n2) {
+		if (n1 == n2) JOptionPane.showMessageDialog(null, "These numbers are equal");
+		else JOptionPane.showMessageDialog(null, max(n1, n2) + " is larger");
+	}
+
+	public static void main(String[] args) {
+		DisplayLarge d = new DisplayLarge();
+		int input[] = d.input();
+		d.output(input[0], input[1]);
+	}
 }
