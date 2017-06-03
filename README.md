@@ -1,2 +1,1 @@
-# JavaSolutions-for-CompleteReference
-The solutions for Java Problems in Complete Reference
+This Repo includes Hacker Earth, SPOJ, ProjectEuler programs etc
